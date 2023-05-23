@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <input type="checkbox" class="navigation_checkbox" id="navi-toggle" />
+
+      <label for="navi-toggle" class="navigation_button">
+        <span class="navigation_icon">&nbsp;</span>
+      </label>
+
+      <div class="navigation_background">&nbsp;</div>
+
+      <a href="#" class="nav-logo">Calculator</a>
+      <nav class="nav navigation_nav">
+        <ul class="nav_items navigation_list">
+          <li class="nav_item navigation_item">
+            <a href="#" class="nav_link navigation_link"><span>01</span>Home</a>
+          </li>
+          <li class="nav_item navigation_item">
+            <a href="#" class="nav_link navigation_link"
+              ><span>02</span>Projects</a
+            >
+          </li>
+          <li class="nav_item navigation_item">
+            <a href="#" class="nav_link navigation_link"
+              ><span>03</span>About</a
+            >
+          </li>
+          <li class="nav_item navigation_item">
+            <a href="#" class="nav_link navigation_link"
+              ><span>04</span>Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <button id="form-open" class="button button_login">Login</button>
+    </header>
+
+    <!-- Home -->
+    <section class="home">
+      <div class="form_container">
+        <i class="uil uil-times form_close"></i>
+        <!-- Login Form -->
+        <div class="form login_form">
+          <form action="#">
+            <h2 class="login_header">Login</h2>
+
+            <div class="input_box">
+              <input type="email" placeholder="Enter your email" required />
+              <i class="uil uil-envelope-alt icon_email email"></i>
+            </div>
+            <div class="input_box">
+              <input
+                type="password"
+                placeholder="Enter your password"
+                required
+              />
+              <i class="uil uil-lock icon_password password"></i>
+              <i class="uil uil-eye-slash icon_hidden pw_hide"></i>
+            </div>
+
+            <div class="option_field">
+              <span class="checkbox">
+                <input id="check" type="checkbox" />
+                <label for="check">Remember me</label>
+              </span>
+              <a href="#" class="forgot_pw">Forgot password?</a>
+            </div>
+
+            <button class="button button_signin">Login Now</button>
+
+            <div class="login_signup">
+              Don't have an account?
+              <a href="#" id="signup">Signup</a>
+            </div>
+          </form>
+        </div>
+        <!-- Sign up Form -->
+        <div class="form signup_form">
+          <form action="#">
+            <h2 class="login_header">Sign Up</h2>
+
+            <div class="input_box">
+              <input type="email" placeholder="Enter your email" required />
+              <i class="uil uil-envelope-alt icon_email email"></i>
+            </div>
+            <div class="input_box">
+              <input
+                type="phone"
+                placeholder="Enter your phone number"
+                required
+              />
+              <i class="uil uil-phone-alt icon_phone phone"></i>
+            </div>
+            <div class="input_box">
+              <input type="password" placeholder="Create password" required />
+              <i class="uil uil-lock icon_password password"></i>
+              <i class="uil uil-eye-slash icon_hidden pw_hide"></i>
+            </div>
+            <div class="input_box">
+              <input type="password" placeholder="Confirm password" required />
+              <i class="uil uil-lock icon_password password"></i>
+              <i class="uil uil-eye-slash icon_hidden pw_hide"></i>
+            </div>
+
+            <button class="button button_signup">Sign Up</button>
+
+            <div class="login_signup">
+              Already have an account?
+              <a href="#" id="login">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="calculator">
+        <div class="calc_container">
+          <div class="input_area">
+            <input
+              type="text"
+              class="calc_input calc_input-1"
+              id="input-1"
+              maxlength="16"
+            />
+            <label
+              for="input-1"
+              type="text"
+              class="calc_input calc_label-2"
+              readonly
+              >&nbsp;</label
+            >
+          </div>
+          <div class="k-board">
+            <div class="btn btn--gray btn-power">^</div>
+            <div class="btn btn--gray btn-mod">Mod</div>
+            <div class="btn btn--gray btn-div">Div</div>
+            <div class="btn btn--gray btn-division">÷</div>
+            <div class="btn btn--dark btn-delete">
+              <i class="uil uil-cancel"></i>
+            </div>
+
+            <div class="btn btn-7">7</div>
+            <div class="btn btn-8">8</div>
+            <div class="btn btn-9">9</div>
+            <div class="btn btn--gray btn-multip">×</div>
+            <div class="btn btn--dark btn-AC">AC</div>
+
+            <div class="btn btn-4">4</div>
+            <div class="btn btn-5">5</div>
+            <div class="btn btn-6">6</div>
+            <div class="btn btn--gray btn-min">-</div>
+            <div class="btn btn--gray btn-M-plus">M+</div>
+
+            <div class="btn btn-1">1</div>
+            <div class="btn btn-2">2</div>
+            <div class="btn btn-3">3</div>
+            <div class="btn btn--gray btn-plus">+</div>
+            <div class="btn btn--gray btn-M-min">M-</div>
+
+            <div class="btn btn-0">0</div>
+            <div class="btn btn-dot">.</div>
+            <div class="btn btn--gray btn-ans">Ans</div>
+            <div class="btn btn--equal btn-equal">=</div>
+            <div class="btn btn--gray btn-MR">MR</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

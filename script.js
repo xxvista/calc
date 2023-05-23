@@ -42,7 +42,8 @@ let previousNumber = "",
   operation = "",
   previous,
   current,
-  result;
+  result,
+  memorize = 0;
 
 /// Fonctions:
 const updateInput = function () {
@@ -54,14 +55,13 @@ const updateLabel = function () {
 };
 
 const clickNumber = function (num) {
-  currentNumber += num;
+  currentNumber += num.toString();
 };
 
 const clickOperate = function (op) {
   if (op === "-" && currentNumber === "") {
     currentNumber = "-";
     updateInput();
-    console.log(1);
   } else if (operation === "" && currentNumber && currentNumber !== "-") {
     operation = op;
     previousNumber = currentNumber;
@@ -69,8 +69,7 @@ const clickOperate = function (op) {
     updateLabel();
     console.log(2);
   } else if (operation && currentNumber && previousNumber) {
-    compute();
-    console.log(3);
+    computeOperate(op);
   } else if (result) {
     operation = op;
     previousNumber = result;
@@ -101,6 +100,7 @@ const clear = function () {
   operation = "";
   previousNumber = "";
   currentNumber = "";
+  memorize = 0;
 };
 
 const compute = function () {
@@ -132,6 +132,10 @@ const compute = function () {
     default:
       return;
   }
+};
+
+const computeEqual = function () {
+  compute();
   previousNumber = `${previousNumber} ${operation} ${currentNumber}`;
   currentNumber = result;
   operation = "=";
@@ -142,6 +146,31 @@ const compute = function () {
   currentNumber = "";
 };
 
+const computeOperate = function (op) {
+  compute();
+  previousNumber = result;
+  currentNumber = result;
+  operation = op;
+  updateInput();
+  updateLabel();
+  // operation = "";
+  currentNumber = "";
+};
+
+const ansF = function () {
+  currentNumber = result;
+  updateInput();
+};
+const mPlus = function () {
+  result ? (memorize += result) : (memorize += currentNumber);
+};
+const mMin = function () {
+  result ? (memorize -= result) : (memorize -= currentNumber);
+};
+const mResult = function () {
+  currentNumber = memorize;
+  updateInput();
+};
 /// Affiche popup:
 formOpenBtn.addEventListener("click", () => home.classList.add("show"));
 formCloseBtn.addEventListener("click", () => home.classList.remove("show"));
@@ -258,17 +287,17 @@ btnAC.addEventListener("click", () => {
   updateLabel();
 });
 btnMR.addEventListener("click", () => {
-  input.value = "MR";
+  mResult();
 });
 btnMPlus.addEventListener("click", () => {
-  input.value = "M+";
+  mPlus();
 });
 btnMMin.addEventListener("click", () => {
-  input.value = "M-";
+  mMin();
 });
 btnAns.addEventListener("click", () => {
-  input.value = "Ans";
+  ansF();
 });
 btnEqual.addEventListener("click", () => {
-  compute();
+  computeEqual();
 });

@@ -118,7 +118,11 @@ const compute = function () {
       result = previous * current;
       break;
     case "÷":
-      result = previous / current;
+      if (current === 0) {
+        alert("ne peut pas devise sur 0");
+      } else {
+        result = previous / current;
+      }
       break;
     case "^":
       result = previous ^ current;
@@ -171,6 +175,7 @@ const mResult = function () {
   currentNumber = memorize;
   updateInput();
 };
+
 /// Affiche popup:
 formOpenBtn.addEventListener("click", () => home.classList.add("show"));
 formCloseBtn.addEventListener("click", () => home.classList.remove("show"));
@@ -301,3 +306,4 @@ btnAns.addEventListener("click", () => {
 btnEqual.addEventListener("click", () => {
   computeEqual();
 });
+input.addEventListener("keypress", (e) => {});
